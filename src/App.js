@@ -38,12 +38,17 @@ function App() {
 
   return (
     <div className="App">
-      <div className="heading-container">
-        <h1 className="swing-heading">🎵 Mood-Based Playlist Generator</h1>
+      <div className="hanging-heading">
+  <span className="black-text">Moo</span>
+  <span className="blue-text">d Based Play</span>
+  <span className="black-text">list </span>
+  <span className="blue-text">gen</span>
+  <span className="black-text">erator</span>
+
+      </div>
         <p className="subtitle">
           Type how you feel, and get a custom playlist matching your mood!
         </p>
-      </div>
 
       <form onSubmit={handleSubmit} className="input-wrapper">
         <textarea
