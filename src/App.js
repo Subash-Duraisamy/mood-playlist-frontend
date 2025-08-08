@@ -37,44 +37,36 @@ function App() {
   };
 
   return (
-    <div className="App" style={{ fontFamily: "Arial, sans-serif", padding: "20px" }}>
-      <h1>🎵 Mood-Based Playlist Generator</h1>
-      <form onSubmit={handleSubmit} style={{ marginBottom: "20px" }}>
+    <div className="App">
+      <div className="heading-container">
+        <h1 className="swing-heading">🎵 Mood-Based Playlist Generator</h1>
+        <p className="subtitle">
+          Type how you feel, and get a custom playlist matching your mood!
+        </p>
+      </div>
+
+      <form onSubmit={handleSubmit} className="input-wrapper">
         <textarea
           placeholder="Type how you feel today..."
           value={text}
           onChange={(e) => setText(e.target.value)}
           rows={4}
-          cols={40}
-          style={{ padding: "10px", fontSize: "16px" }}
+          className="text-input"
         />
-        <br />
-        <button
-          type="submit"
-          disabled={!text || loading}
-          style={{
-            marginTop: "10px",
-            padding: "10px 20px",
-            backgroundColor: "#4CAF50",
-            color: "white",
-            border: "none",
-            cursor: "pointer",
-            fontSize: "16px",
-          }}
-        >
+        <button type="submit" disabled={!text || loading} className="btn-primary">
           {loading ? "Predicting..." : "Get Playlist"}
         </button>
       </form>
 
-      {error && <p style={{ color: "red" }}>{error}</p>}
+      {error && <p className="error-message">{error}</p>}
 
       {mood && (
-        <div>
-          <h2>Detected Mood: {mood}</h2>
+        <div className="result-card">
+          <h2 className="result-mood">Detected Mood: <span className="blue-letter">{mood}</span></h2>
           <h3>Your Playlist:</h3>
-          <ul>
+          <ul className="playlist-list">
             {playlist.map((song, idx) => (
-              <li key={idx}>{song}</li>
+              <li key={idx} className="playlist-item">{song}</li>
             ))}
           </ul>
         </div>
